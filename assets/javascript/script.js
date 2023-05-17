@@ -1,5 +1,8 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "?"]
+var numb = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+var lowerCase = []
 
 // Write password to the #password input
 function writePassword() {
