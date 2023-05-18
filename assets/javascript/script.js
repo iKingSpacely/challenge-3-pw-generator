@@ -1,35 +1,67 @@
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
-var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "?"];
-var numb = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var lowerC = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" ];
-var upperC = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ];
 
-// Write password to the #password input
+// Function to prompt user for password criteria and generate password
+function generatePassword() {
+  // Character sets to use for password generation
+  var charSets = {
+    lowercase: "abcdefghijklmnopqrstuvwxyz",
+    uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    numeric: "0123456789",
+    special: "!@#$%^&*()_+-={}[]|:;',.?/~`"
+  };
+
+  // Prompt user for password length
+  var passLength = parseInt(prompt("Enter password length (between 8 and 128 characters):"));
+  
+  if (isNaN(passLength) || passLength < 8 || passLength > 128) {
+    alert("Invalid password length! Please enter a number between 8 and 128.");
+    return;
+  }
+
+  // Prompt user for character types to include in password
+  var useLowercase = confirm("Include lowercase letters?");
+  var useUppercase = confirm("Include uppercase letters?");
+  var useNumeric = confirm("Include numeric characters?");
+  var useSpecial = confirm("Include special characters?");
+
+  // Make sure at least one character type is selected
+  if (!useLowercase && !useUppercase && !useNumeric && !useSpecial) {
+    alert("You must select at least one character type!");
+    return;
+  }
+
+  // Build character set based on user selections
+  var charSet = "";
+  if (useLowercase) {
+    charSet += charSets.lowercase;
+  }
+  if (useUppercase) {
+    charSet += charSets.uppercase;
+  }
+  if (useNumeric) {
+    charSet += charSets.numeric;
+  }
+  if (useSpecial) {
+    charSet += charSets.special;
+  }
+
+  // Generate password using selected character set and length
+  var password = "";
+  for (var i = 0; i < passLength; i++) {
+    password += charSet.charAt(Math.floor(Math.random() * charSet.length));
+  }
+
+  return password;
+}
+
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-
+  if (password) {
+    passwordText.value = password;
+  }
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
-
-
-//ask for length of a password
-  //prompt
-  //save it to a variable
-//check the length provided by user is a number and in between 8 and 128
-  
-//confirm : 4 for uppercase, lowercase, numbers, special characters
-  // save it to a variable
-//check if one of the  uppercase or lowercase or num or sp char is there
-   // combine the confirmed arrays
-// create an array for uppercase letters, lowercase letters....
-//create an array variable to have a new password with length provided by user. []
-//random item from combined array and push it to new password array and do this step up to the length of user input.
