@@ -1,4 +1,4 @@
-# challenge-3-pw-generator
+# Challenge 3 - Password Generator
 
 ## Description
 - Created a password generator that randomizes a password between 8 and 128 characters
