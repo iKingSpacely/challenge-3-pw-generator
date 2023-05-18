@@ -7,7 +7,7 @@
 - Pressing the "Generate Password" will generate a randomizes password based on the users above inputs of length and which characters to use
 
 ## Screenshot
-
+- ![screenshot of password generator](assets/images/PW-Generator-SC.png)
 
 ## Deployed Link
 - 
