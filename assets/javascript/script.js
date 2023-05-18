@@ -6,8 +6,8 @@ function generatePassword() {
   var charSets = {
     lowercase: "abcdefghijklmnopqrstuvwxyz",
     uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    number: "0123456789",
-    specialchar: "!@#$%^&*()_+-={}[]|:;',.?/~`"
+    numeric: "0123456789",
+    special: "!@#$%^&*()_+-=?"
   }
 
   // Prompt user for password length - parse is what I found on Google and made the most sense after reading the definition and use case for me. Because we need a specific password through 8 and 128, the parse will be able to read the string argument and notify the user through a prompt to put a number into the prompt that is between 8 and 128
@@ -20,26 +20,26 @@ function generatePassword() {
   }
 
   // Prompt user for character types to include in password
-  var useLowercase = confirm("Include lowercase letters?");
-  var useUppercase = confirm("Include uppercase letters?");
-  var useNumber = confirm("Include number values?");
-  var useSpecialchar = confirm("Include special characters?")
+  var useLowercase = confirm("Do you want to include lowercase letters?");
+  var useUppercase = confirm("Do you want to include UPPERCASE letters?");
+  var useNumeric = confirm("Do you want to include number values?");
+  var useSpecial = confirm("Do you want to include special characters?")
 
   // Make sure at least one character type is selected. Using ! in front of each means "not", so by including in front of all of them we're saying if a user does NOT input at least one of the four character types, an alert will show up saying that they need to use one.
-  if (!useLowercase && !useUppercase && !useNumber && !useSpecialchar) {
-    alert("You must select at least one character type!");
+  if (!useLowercase && !useUppercase && !useNumeric && !useSpecial) {
+    alert("Please select at least one character type!");
     return;
   }
 
-  // Build character set based on user selections located on lines 23-26
+  // Build character set based on user selections located on lines 23-26: If the user uses Lowercase than add Lowercase, if user uses Uppercase, than add Uppercase and so on. The += is the addition symbol to add these variables into the generator.
   var charSet = "";
     if (useLowercase) {
     charSet += charSets.lowercase;
   } if (useUppercase) {
     charSet += charSets.uppercase;
-  } if (useNumber) {
+  } if (useNumeric) {
     charSet += charSets.numeric;
-  } if (useSpecialchar) {
+  } if (useSpecial) {
     charSet += charSets.special;
   }
 
@@ -50,6 +50,7 @@ function generatePassword() {
   } return password;
 }
 
+// the below functin takes all of the above into account and generates the password for the user
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
