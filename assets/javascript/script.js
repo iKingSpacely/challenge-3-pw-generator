@@ -22,8 +22,8 @@ function generatePassword() {
   // Prompt user for character types to include in password
   var useLowercase = confirm("Do you want to include lowercase letters?");
   var useUppercase = confirm("Do you want to include UPPERCASE letters?");
-  var useNumeric = confirm("Do you want to include number values?");
-  var useSpecial = confirm("Do you want to include special characters?")
+  var useNumeric = confirm("Do you want to include number values(1234)?");
+  var useSpecial = confirm("Do you want to include special characters (!@#$)?")
 
   // Make sure at least one character type is selected. Using ! in front of each means "not", so by including in front of all of them we're saying if a user does NOT input at least one of the four character types, an alert will show up saying that they need to use one.
   if (!useLowercase && !useUppercase && !useNumeric && !useSpecial) {
