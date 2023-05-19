@@ -43,7 +43,7 @@ function generatePassword() {
     charSet += charSets.special;
   }
 
-  // Generate password using selected character set and length. Math.floor is rounding down to the nearest integer (which are whole numbers defined in the initial var Charsets) and math.random randomizes the var Charsets to generate a randomized password through the function on line 54
+  // Generate password using selected character set and length Math.floor is rounding down to the nearest integer (which are whole numbers defined in the initial var Charsets) and math.random randomizes the var Charsets to generate a randomized password through the function on line 54
   var password = "";
     for (var i = 0; i < passLength; i++) {
     password += charSet.charAt(Math.floor(Math.random() * charSet.length));

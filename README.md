@@ -10,7 +10,7 @@
 - ![screenshot of password generator](assets/images/PW-Generator-SC.png)
 
 ## Deployed Link
-- 
+- https://ikingspacely.github.io/challenge-3-pw-generator/
 
 ## Github Repo Link
 - https://github.com/iKingSpacely/challenge-3-pw-generator
